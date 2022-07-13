@@ -1,3 +1,8 @@
+# dependencies to install
+1. node modules (npm install)
+2. date range picker (react-date-range: npm install --save react-date-range)
+3. Date-fns (npm install date-fns --save)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
