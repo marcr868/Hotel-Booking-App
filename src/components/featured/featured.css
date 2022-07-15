@@ -13,23 +13,3 @@
   justify-content: space-between;
   gap: 5px;
 }
-
-.featuredItem {
-  position: relative;
-  color: #ffff;
-  border-radius: 5px;
-  overflow: hidden;
-  height: 250px;
-}
-
-.featuredImg {
-  border-radius: 5px;
-  width: 100%;
-  object-fit: cover;
-}
-
-.featuredTitles {
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
-}
