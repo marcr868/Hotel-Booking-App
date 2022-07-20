@@ -53,7 +53,7 @@ const Header = ({ type }) => {
     }
   };
 
-  //options
+  //options - lifting state up pattern used here
   const [options, setOptions] = useState({
     adult: 1,
     children: 0,
