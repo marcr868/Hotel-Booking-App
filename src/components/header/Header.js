@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./header.css";
 
 //icons import
@@ -23,7 +24,11 @@ import { format } from "date-fns";
 //options picker import
 import OptionsPicker from "../options-picker/OptionsPicker";
 
+/* adding in a 'type' prop to hide some content within the Header */
 const Header = ({ type }) => {
+  //Destination
+  const [destination, setDestination] = useState("");
+
   //date range picker
   const [date, setDate] = useState([
     {
@@ -98,6 +103,14 @@ const Header = ({ type }) => {
     }
   };
 
+  //useNavigate Hook :
+  // https://reactrouter.com/docs/en/v6/hooks/use-navigate
+  const navigate = useNavigate();
+  //search handler route to hotels page
+  const handleSearch = () => {
+    navigate("/hotels", { state: { destination, date, options } });
+  };
+
   return (
     <div className="header">
       <div
@@ -150,6 +163,7 @@ const Header = ({ type }) => {
                   type="text"
                   placeholder="Where are you going?"
                   className="headerSearchInput"
+                  onChange={(e) => setDestination(e.target.value)}
                 ></input>
               </div>
 
@@ -168,6 +182,7 @@ const Header = ({ type }) => {
                     moveRangeOnFirstSelection={false}
                     ranges={date}
                     className="date"
+                    minDate={new Date()}
                   />
                 )}
               </div>
@@ -202,7 +217,9 @@ const Header = ({ type }) => {
               </div>
 
               <div className="headerSearchItem">
-                <button className="headerBtn">Search</button>
+                <button className="headerBtn" onClick={handleSearch}>
+                  Search
+                </button>
               </div>
             </div>
           </>
